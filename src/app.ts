@@ -43,10 +43,12 @@ export class App {
       const server = await mongoose.connect(
         `${dbConsts.DATABASE_ADDRESS}/Portifolio`
       );
+      // eslint-disable-next-line no-console
       console.log(
         `[MongoDB Connection] server.connection.name: ${server.connection.name}`
       );
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Could not connect into MongoDB, error: ', error);
       process.exit();
     }
