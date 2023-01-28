@@ -19,7 +19,7 @@ export class UserController {
 
   constructor() {
     this._router.post('/creationRequest', this.creationRequest);
-    this._router.post('/verifyCode', this.verifyCode);
+    this._router.post('/verifyCodeCreation', this.verifyCode);
     this._router.post('/createUser', this.createUser);
   }
 

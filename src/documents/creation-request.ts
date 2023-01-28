@@ -1,7 +1,8 @@
 import { Document, ObjectId } from 'mongoose';
 
 export interface CreationRequestDocument extends Document {
-  _id?: ObjectId;
+  _id: ObjectId;
   email: string;
   code: string;
+  created_at: Date;
 }
