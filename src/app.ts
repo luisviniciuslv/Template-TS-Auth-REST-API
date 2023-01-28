@@ -3,12 +3,11 @@ import cors from 'cors';
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import dbConsts from './constants/database';
-import { UserController } from './controller/user-controller';
+import { UserCreationController } from './controller/user-creation-controller';
 import { DatabaseUriNotFoundException } from './exceptions/database-uri-not-found-exception';
 
 export class App {
   private _server: Application;
-
   public get server() {
     return this._server;
   }
@@ -27,8 +26,8 @@ export class App {
   }
 
   private setControllers() {
-    const userController = new UserController();
-    this._server.use('/api', userController.router);
+    const userCreationController = new UserCreationController();
+    this._server.use('/user', userCreationController.router);
   }
 
   private async setMongoConnection() {
