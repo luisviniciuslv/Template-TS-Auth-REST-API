@@ -14,7 +14,7 @@ export class Service {
   public async getUserById(id: string) {
     const user = await this.userRepository.findById(id);
     if (!user) {
-      throw new UserNotFoundException(`Company not found: ${id}`);
+      throw new UserNotFoundException(`User not found: ${id}`);
     }
 
     return user;
