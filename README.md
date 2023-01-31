@@ -15,7 +15,7 @@ This API provides an example of how to create accounts with email verification a
 ## Getting Started
 
 1. Clone the repository
-```git clone https://github.com/luisviniciuslv/AuthAPI.git```
+```git clone https://github.com/luisviniciuslv/Template-TS-Auth-REST-API.git```
 
 2. Install the dependencies
 ```npm install --legacy-peer-deps```
