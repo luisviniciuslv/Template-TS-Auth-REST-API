@@ -1,7 +1,7 @@
 {
   "name": "authapi",
   "version": "1.0.0",
-  "description": "Um modelo completo com sistema de criação de contas e autenticação de usuários, utilizando NodeJS, Express, MongoDB e TypeScript.",
+  "description": "Um modelo completo com sistema de criação de contas",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .ts src/",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisviniciuslv/portifolio_api.git"
+    "url": "git+https://github.com/luisviniciuslv/AuthAPI.git"
   },
   "author": "",
   "license": "ISC",
@@ -55,7 +55,7 @@
     "nodemailer": "^6.9.1"
   },
   "bugs": {
-    "url": "https://github.com/luisviniciuslv/portifolio_api/issues"
+    "url": "https://github.com/luisviniciuslv/AuthAPI/issues"
   },
-  "homepage": "https://github.com/luisviniciuslv/portifolio_api#readme"
+  "homepage": "https://github.com/luisviniciuslv/AuthAPI#readme"
 }
