@@ -33,8 +33,8 @@ JWT_SECRET=123
 
 ## Endpoints
 ```  
-  - POST /creationRequest - creates an account creation request, sending a code to the user's email.
-  - POST /verifyCodeCreation - checks if the email and account creation code are valid, and if so, it registers the account in the database
+  - POST '/creationRequest' - creates an account creation request, sending a code to the user's email.
+  - POST '/verifyCodeCreation' - checks if the email and account creation code are valid, and if so, it registers the account in the database
   - POST '/login' - receives an email and password, if they exist in the database, returns an access token.
   - GET '/:id' - returns a user based on its id, but access token is required to receive!
 ```
