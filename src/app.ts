@@ -40,7 +40,7 @@ export class App {
       }
       mongoose.set('strictQuery', true);
       const server = await mongoose.connect(
-        `${dbConsts.DATABASE_ADDRESS}/Portifolio`
+        `${dbConsts.DATABASE_ADDRESS}/AuthAPI`
       );
       // eslint-disable-next-line no-console
       console.log(
