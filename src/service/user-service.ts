@@ -3,12 +3,35 @@ import { CreationRequestNotExistsException } from '../exceptions/creation-reques
 import { CreationRequestCodeErrorException } from '../exceptions/creation-request-code-error';
 import { UserRepository } from '../repository/user-repository';
 import { UserAlreadyExistsException } from '../exceptions/user-already-exists';
-import { encryptStr } from '../functions/encrypt';
+import { comparePlainText, encryptStr } from '../functions/encrypt';
 import { sendEmail } from '../functions/nodemailer';
+import { UserNotFoundException } from '../exceptions/user-not-found-exception';
 
-export class CreationRequestService {
+export class Service {
   private creationRequestRepository = new CreationRequestRepository();
-  private UserRepository = new UserRepository();
+  private userRepository = new UserRepository();
+
+  public async getUserById(id: string) {
+    const user = await this.userRepository.findById(id);
+    if (!user) {
+      throw new UserNotFoundException(`Company not found: ${id}`);
+    }
+
+    return user;
+  }
+
+  public async executeLogin(email: string, password: string) {
+    const foundUser = await this.userRepository.findByEmail(email);
+    if (!foundUser) {
+      throw new Error('Invalid e-mail or password!');
+    }
+
+    const isValidPassword = await comparePlainText(
+      password,
+      foundUser.password
+    );
+    return isValidPassword;
+  }
 
   public async verifyCodeAndCreateAccount(email: string, code: string) {
     const creationRequest = await this.creationRequestRepository.findByEmail(
@@ -27,11 +50,11 @@ export class CreationRequestService {
 
     await this.creationRequestRepository.deleteByEmail(email);
     const password = creationRequest.password;
-    await this.UserRepository.create({ email, password });
+    await this.userRepository.create({ email, password });
   }
 
   public async createCreationRequest(email: string, password: string) {
-    const user = await this.UserRepository.findByEmail(email);
+    const user = await this.userRepository.findByEmail(email);
     password = await encryptStr(password);
     if (user) {
       throw new UserAlreadyExistsException('User email already exists');

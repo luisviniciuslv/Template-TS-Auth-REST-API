@@ -1,7 +1,7 @@
 {
-  "name": "portifolio_api",
+  "name": "authapi",
   "version": "1.0.0",
-  "description": "meu portifólio para backend",
+  "description": "Um modelo completo com sistema de criação de contas e autenticação de usuários, utilizando NodeJS, Express, MongoDB e TypeScript.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --ext .ts src/",

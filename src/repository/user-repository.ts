@@ -6,4 +6,5 @@ export class UserRepository {
     return new User(user).save();
   }
   public findByEmail = (email: string) => User.findOne({ email }).exec();
+  public findById = (id: string) => User.findById(id).exec();
 }
