@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { Service } from '../service/user-service';
+import { UserService } from '../service/user-service';
 import { CreationRequestAlreadyExistsException } from '../exceptions/creation-request-already-exists';
 import { CreationRequestNotExistsException } from '../exceptions/creation-request-not-exists';
 import { CreationRequestCodeErrorException } from '../exceptions/creation-request-code-error';
@@ -19,9 +19,9 @@ import { validateSearchParams } from './validations/user-search';
 import { UserNotFoundException } from '../exceptions/user-not-found-exception';
 import { InvalidSearchParamsExeption } from '../exceptions/invalid-search-params';
 
-export class UserCreationController {
+export class UserController {
   private _router = Router();
-  private creationRequestService = new Service();
+  private creationRequestService = new UserService();
   public get router() {
     return this._router;
   }

@@ -7,7 +7,7 @@ import { comparePlainText, encryptStr } from '../functions/encrypt';
 import { sendEmail } from '../functions/nodemailer';
 import { UserNotFoundException } from '../exceptions/user-not-found-exception';
 
-export class Service {
+export class UserService {
   private creationRequestRepository = new CreationRequestRepository();
   private userRepository = new UserRepository();
 
